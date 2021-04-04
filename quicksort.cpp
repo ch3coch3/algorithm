@@ -36,7 +36,7 @@ void printarray(int array[],int size){
     cout << endl;
 }
 int main(){
-    int array[] = {8,1,6,4,0,3,9,5};
+    int array[] = {5,6,4,2,1,9,0,7,2,4,6};
     
     int p = 0;                       // partition number
     int r = sizeof(array)/sizeof(array[0]);           // choose last element as pivot
