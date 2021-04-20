@@ -2,6 +2,7 @@
 #include<cstdlib>
 using namespace std;
 
+int count = 0;
 int partition(int array[], int p, int r){
     int k = 0;                          // to store the exchange number
     int x = array[r];                   // assign last number as pivot to x
@@ -13,12 +14,14 @@ int partition(int array[], int p, int r){
             k = array[i];
             array[i] = array[j];
             array[j] = k;
+            count++;
         }
     }
     // pivot back to middle
     k = array[i+1];
     array[i+1] = array[r];
     array[r] = k;
+    count++;
     return i+1;
 }
 void quicksort(int array[],int p,int r){   // input array, pivot
@@ -36,11 +39,13 @@ void printarray(int array[],int size){
     cout << endl;
 }
 int main(){
-    int array[] = {5,6,4,2,1,9,0,7,2,4,6};
+//    int array[] = {5,6,4,2,1,9,0,7,2,4,6};
+	int array[] = {5,2,10,3,7,11,6,3,12,7,15};
     
     int p = 0;                       // partition number
     int r = sizeof(array)/sizeof(array[0]);           // choose last element as pivot
     quicksort(array,p,r-1);
     printarray(array,r);
+    cout << "number of exchange: " << count << endl;
     
 }
